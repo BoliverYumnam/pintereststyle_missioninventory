@@ -10,11 +10,17 @@ import GridCard from "./components/GridCard"; // reuse your existing card
 function App() {
   const [launches, setLaunches] = useState<Launch[]>([]);
 
-  useEffect(() => {
-    fetch("https://api.spacexdata.com/v4/launches")
-      .then((res) => res.json())
-      .then((data) => setLaunches(data.slice(0, 6))); // latest 6 launches
-  }, []);
+useEffect(() => {
+  fetch("https://api.spacexdata.com/v4/launches")
+    .then((res) => res.json())
+    .then((data: Launch[]) => {
+      // Sort descending by date_utc
+      const sorted = data.sort(
+        (a, b) => new Date(b.date_utc).getTime() - new Date(a.date_utc).getTime()
+      );
+      setLaunches(sorted.slice(0, 6)); // latest 6 launches
+    });
+}, []);
 
   // Home page content
   const Home = () => (
