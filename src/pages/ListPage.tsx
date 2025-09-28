@@ -80,7 +80,7 @@ const ListPage: React.FC = () => {
         const launchpadName = launchpads.find(p => p.id === l.launchpad)?.name ?? "";
 
         // Payload types and customers
-        const launchPayloads = payloads.filter(p => l.payloads.includes(p.id));
+        const launchPayloads = payloads.filter(p => l.payloads?.includes(p.id));
         const payloadTypes = launchPayloads.map(p => p.type.toLowerCase()).join(" ");
         const payloadCustomers = launchPayloads.flatMap(p => p.customers.map(c => c.toLowerCase())).join(" ");
 
