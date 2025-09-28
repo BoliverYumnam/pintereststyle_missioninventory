@@ -40,3 +40,139 @@
 .read-the-docs {
   color: #888;
 }
+
+/* ----------------------------
+   1. CSS Reset / Base Styles
+---------------------------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px; /* base font size */
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', sans-serif; /* clean modern font */
+  background-color: #fefefe;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ----------------------------
+   2. Responsive Typography
+---------------------------- */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+h1 { font-size: clamp(1.8rem, 4vw, 3rem); }
+h2 { font-size: clamp(1.5rem, 3vw, 2.5rem); }
+h3 { font-size: clamp(1.2rem, 2.5vw, 2rem); }
+p { font-size: clamp(0.9rem, 2vw, 1.1rem); }
+
+/* ----------------------------
+   3. Links and Buttons
+---------------------------- */
+a {
+  text-decoration: none;
+  color: #0070f3;
+  transition: color 0.2s;
+}
+
+a:hover {
+  color: #0051a3;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  background-color: #0070f3;
+  color: #fff;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background-color: #0051a3;
+}
+
+/* ----------------------------
+   4. Navbar
+---------------------------- */
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #f0f0f0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* ----------------------------
+   5. Grid Layouts
+---------------------------- */
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 2rem 1rem;
+}
+
+/* ----------------------------
+   6. Responsive Sections
+---------------------------- */
+section {
+  padding: 2rem 1rem;
+}
+
+.hero {
+  text-align: center;
+  padding: 3rem 1rem;
+  background-color: #f0f0f0;
+}
+
+.quick-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+/* ----------------------------
+   7. Images
+---------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+}
+
+/* ----------------------------
+   8. Media Queries
+---------------------------- */
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .grid-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 2rem; }
+  h2 { font-size: 1.5rem; }
+  .hero { padding: 2rem 1rem; }
+  .quick-links { flex-direction: column; }
+}
